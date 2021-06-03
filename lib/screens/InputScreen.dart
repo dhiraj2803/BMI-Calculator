@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/ResultPage.dart';
 import 'package:bmi_calculator/utils/constant.dart';
 import 'package:bmi_calculator/utils/height_utils.dart';
 import 'package:flutter/cupertino.dart';
@@ -449,32 +450,36 @@ class _InputScreenState extends State<InputScreen> {
               ),
             ),
             Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                    },
-                    child: Material(
-                      borderRadius: BorderRadius.circular(10.0) ,
-                      elevation: 10,
-                      child: Container(
-                          width: width/1.5,
-                          height: height/15,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Calculate",style: kButtonText,),
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            color: kActive,
-                            borderRadius: BorderRadius.circular(10.0),
-                          )
-                      ),
+              child: Center(
+                child: GestureDetector(
+                  child: Material(
+                    borderRadius: BorderRadius.circular(10.0) ,
+                    elevation: 10,
+                    child: Container(
+                        width: width/1.5,
+                        height: height/15,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Calculate",style: kButtonText,),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          color: kActive,
+                          borderRadius: BorderRadius.circular(10.0),
+                        )
                     ),
                   ),
-                ],
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultPage(UserWeight: weight,UserHeight: heightInput,),
+                      ),
+                    );
+
+                  },
+                ),
               ),
             ),
           ],
