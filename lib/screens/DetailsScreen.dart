@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 
 class DetailsView extends StatelessWidget {
   DetailsView({required this.bmi, required this.conditon});
+
   final String bmi;
   final String conditon;
+
   @override
   Widget build(BuildContext context) {
     String info = "";
@@ -98,7 +100,8 @@ class DetailsView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.0),
                         color: kBackground,
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                       height: Sheight / 6,
                       width: Swidth,
                       child: Row(
@@ -115,7 +118,10 @@ class DetailsView extends StatelessWidget {
                           ),
                           Text(
                             "$info",
-                            style: TextStyle(fontSize: 23, color: kActive,fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 23,
+                                color: kActive,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -132,7 +138,8 @@ class DetailsView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.0),
                         color: kBackground,
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                       height: Sheight / 3,
                       width: Swidth,
                       child: Column(
@@ -227,7 +234,8 @@ class DetailsView extends StatelessWidget {
                             children: [
                               Text(
                                 "Re-Calculate",
-                                style: kButtonText,
+                                style:
+                                    kButtonText.copyWith(color: Colors.white),
                               ),
                             ],
                           ),
@@ -240,9 +248,9 @@ class DetailsView extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => InputScreen(),),
+                          builder: (context) => InputScreen(),
+                        ),
                       );
-
                     },
                   ),
                 ),

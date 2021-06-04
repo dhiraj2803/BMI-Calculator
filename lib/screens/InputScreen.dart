@@ -5,23 +5,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-
 class InputScreen extends StatefulWidget {
   @override
   _InputScreenState createState() => _InputScreenState();
 }
 
 class _InputScreenState extends State<InputScreen> {
-  bool maleTap = false ;
-  bool femaleTap = false ;
-  bool range1 =false;
-  bool range2 =false;
-  bool range3 =false;
-  bool range4 =true;
-  bool range5 =false;
-  bool range6 =false;
-  bool range7 =false;
+  bool maleTap = false;
+  bool femaleTap = false;
+  bool range1 = false;
+  bool range2 = false;
+  bool range3 = false;
+  bool range4 = true;
+  bool range5 = false;
+  bool range6 = false;
+  bool range7 = false;
 
   int heightInput = 160;
   int weight = 60;
@@ -45,11 +43,16 @@ class _InputScreenState extends State<InputScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(child:
-            Column(
+            Container(
+                child: Column(
               children: [
-                Text('BMI Calculator',style: kHeadingStyle,),
-                SizedBox(height: 20,),
+                Text(
+                  'BMI Calculator',
+                  style: kHeadingStyle,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,24 +65,24 @@ class _InputScreenState extends State<InputScreen> {
                         });
                       },
                       child: Material(
-                        borderRadius: BorderRadius.circular(10.0) ,
+                        borderRadius: BorderRadius.circular(10.0),
                         elevation: 20,
                         child: Container(
-                          width: width/2.5,
-                          height: height/15,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Male",style: maleTap == true ? kButtonTextActive : kButtonText),
-                            ],
-                          ),
+                            width: width / 2.5,
+                            height: height / 15,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Male",
+                                    style: maleTap == true
+                                        ? kButtonTextActive
+                                        : kButtonText),
+                              ],
+                            ),
                             decoration: BoxDecoration(
-                              color: maleTap == true
-                                  ? kActive
-                                  : kBackground,
+                              color: maleTap == true ? kActive : kBackground,
                               borderRadius: BorderRadius.circular(10.0),
-                            )
-                        ),
+                            )),
                       ),
                     ),
                     GestureDetector(
@@ -91,24 +94,23 @@ class _InputScreenState extends State<InputScreen> {
                       },
                       child: Material(
                         elevation: 20.0,
-                        borderRadius:BorderRadius.circular(10.0) ,
+                        borderRadius: BorderRadius.circular(10.0),
                         child: Container(
-                            width: width/2.5,
-                            height: height/15,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Female",style: femaleTap == true ? kButtonTextActive : kButtonText),
-                            ],
-                          ),
+                            width: width / 2.5,
+                            height: height / 15,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Female",
+                                    style: femaleTap == true
+                                        ? kButtonTextActive
+                                        : kButtonText),
+                              ],
+                            ),
                             decoration: BoxDecoration(
-
-                              color: femaleTap == true
-                                  ? kActive
-                                  : kBackground,
+                              color: femaleTap == true ? kActive : kBackground,
                               borderRadius: BorderRadius.circular(10.0),
-                            )
-                        ),
+                            )),
                       ),
                     )
                   ],
@@ -116,26 +118,28 @@ class _InputScreenState extends State<InputScreen> {
               ],
             )),
             Container(
-              height: height/1.6,
+              height: height / 1.6,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Material(
                     // height input
-                    borderRadius: BorderRadius.circular(10.0) ,
+                    borderRadius: BorderRadius.circular(10.0),
                     elevation: 5,
                     child: Container(
                       decoration: BoxDecoration(
                         color: kBackground,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      width: width/2.5,
+                      width: width / 2.5,
                       //height info
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         //crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          SizedBox(height: 6,),
+                          SizedBox(
+                            height: 6,
+                          ),
                           //height display
                           Container(
                             height: 60,
@@ -143,38 +147,41 @@ class _InputScreenState extends State<InputScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text("Height",style: kButtonText,),
-
-                                Text("$heightInput CM",style:TextStyle(
-                                  fontSize: 20.0,
-                                  color: kText,
-                                )),
+                                Text(
+                                  "Height",
+                                  style: kButtonText,
+                                ),
+                                Text("$heightInput CM",
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      color: kText,
+                                    )),
                               ],
                             ),
-
                           ),
-                          SizedBox(height: 6,),
+                          SizedBox(
+                            height: 6,
+                          ),
                           Container(
-                            height: (height/1.6) - 75 ,
+                            height: (height / 1.6) - 75,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 //slider
                                 Container(
-                                  width: width/12,
+                                  width: width / 12,
                                   child: SliderTheme(
-                                      data: SliderTheme.of(context).copyWith(
-
-                                        inactiveTrackColor: Colors.white,
-                                        activeTrackColor: kActive,
-                                        thumbColor: Colors.white,
-                                        overlayColor: kBackground2,
-                                        thumbShape:
-                                        RoundSliderThumbShape(enabledThumbRadius: 10.0),
-                                        overlayShape:
-                                        RoundSliderOverlayShape(overlayRadius: 15.0),
-                                      ),
+                                    data: SliderTheme.of(context).copyWith(
+                                      inactiveTrackColor: kGrey,
+                                      activeTrackColor: kActive,
+                                      thumbColor: Color(0xffff9999),
+                                      overlayColor: kBackground2,
+                                      thumbShape: RoundSliderThumbShape(
+                                          enabledThumbRadius: 10.0),
+                                      overlayShape: RoundSliderOverlayShape(
+                                          overlayRadius: 15.0),
+                                    ),
                                     child: RotatedBox(
                                       quarterTurns: 3,
                                       child: Slider(
@@ -185,7 +192,8 @@ class _InputScreenState extends State<InputScreen> {
                                         onChanged: (double newValue) {
                                           setState(() {
                                             heightInput = newValue.round();
-                                            if(heightInput>=100 && heightInput<120){
+                                            if (heightInput >= 100 &&
+                                                heightInput < 120) {
                                               range1 = true;
                                               range2 = false;
                                               range3 = false;
@@ -193,7 +201,8 @@ class _InputScreenState extends State<InputScreen> {
                                               range5 = false;
                                               range6 = false;
                                               range7 = false;
-                                            }else if(heightInput>=120 && heightInput<140){
+                                            } else if (heightInput >= 120 &&
+                                                heightInput < 140) {
                                               range1 = false;
                                               range2 = true;
                                               range3 = false;
@@ -201,7 +210,8 @@ class _InputScreenState extends State<InputScreen> {
                                               range5 = false;
                                               range6 = false;
                                               range7 = false;
-                                            }else if(heightInput>=140 && heightInput<160){
+                                            } else if (heightInput >= 140 &&
+                                                heightInput < 160) {
                                               range1 = false;
                                               range2 = false;
                                               range3 = true;
@@ -209,7 +219,8 @@ class _InputScreenState extends State<InputScreen> {
                                               range5 = false;
                                               range6 = false;
                                               range7 = false;
-                                            }else if(heightInput>=160 && heightInput<180){
+                                            } else if (heightInput >= 160 &&
+                                                heightInput < 180) {
                                               range1 = false;
                                               range2 = false;
                                               range3 = false;
@@ -217,7 +228,8 @@ class _InputScreenState extends State<InputScreen> {
                                               range5 = false;
                                               range6 = false;
                                               range7 = false;
-                                            }else if(heightInput>=180 && heightInput<200){
+                                            } else if (heightInput >= 180 &&
+                                                heightInput < 200) {
                                               range1 = false;
                                               range2 = false;
                                               range3 = false;
@@ -225,7 +237,8 @@ class _InputScreenState extends State<InputScreen> {
                                               range5 = true;
                                               range6 = false;
                                               range7 = false;
-                                            }else if(heightInput>=200 && heightInput<220){
+                                            } else if (heightInput >= 200 &&
+                                                heightInput < 220) {
                                               range1 = false;
                                               range2 = false;
                                               range3 = false;
@@ -233,7 +246,7 @@ class _InputScreenState extends State<InputScreen> {
                                               range5 = false;
                                               range6 = true;
                                               range7 = false;
-                                            }else if(heightInput==220){
+                                            } else if (heightInput == 220) {
                                               range1 = false;
                                               range2 = false;
                                               range3 = false;
@@ -250,59 +263,149 @@ class _InputScreenState extends State<InputScreen> {
                                 ),
                                 //marker
                                 Container(
-                                  width: width/20,
+                                  width: width / 20,
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 15),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Scale(width: width/25,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/40,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/25,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/40,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/25,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/40,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/25,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/40,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/25,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/40,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/25,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/40,),
-                                        Scale(width: width/50,),
-                                        Scale(width: width/25,),
-
+                                        Scale(
+                                          width: width / 25,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 40,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 25,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 40,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 25,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 40,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 25,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 40,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 25,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 40,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 25,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 40,
+                                        ),
+                                        Scale(
+                                          width: width / 50,
+                                        ),
+                                        Scale(
+                                          width: width / 25,
+                                        ),
                                       ],
                                     ),
                                   ),
                                 ),
                                 //height
                                 Container(
-                                  width: width/7,
+                                  width: width / 7,
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 7,horizontal: 5),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 7, horizontal: 5),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text("220", style: range7 == true ? kHeightInRange : kHeightNotInRange,),
-                                        Text("200", style: range6 == true ? kHeightInRange : kHeightNotInRange,),
-                                        Text("180", style: range5 == true ? kHeightInRange : kHeightNotInRange,),
-                                        Text("160", style: range4 == true ? kHeightInRange : kHeightNotInRange,),
-                                        Text("140", style: range3 == true ? kHeightInRange : kHeightNotInRange,),
-                                        Text("120", style: range2 == true ? kHeightInRange : kHeightNotInRange,),
-                                        Text("100", style: range1 == true ? kHeightInRange : kHeightNotInRange,),
+                                        Text(
+                                          "220",
+                                          style: range7 == true
+                                              ? kHeightInRange
+                                              : kHeightNotInRange,
+                                        ),
+                                        Text(
+                                          "200",
+                                          style: range6 == true
+                                              ? kHeightInRange
+                                              : kHeightNotInRange,
+                                        ),
+                                        Text(
+                                          "180",
+                                          style: range5 == true
+                                              ? kHeightInRange
+                                              : kHeightNotInRange,
+                                        ),
+                                        Text(
+                                          "160",
+                                          style: range4 == true
+                                              ? kHeightInRange
+                                              : kHeightNotInRange,
+                                        ),
+                                        Text(
+                                          "140",
+                                          style: range3 == true
+                                              ? kHeightInRange
+                                              : kHeightNotInRange,
+                                        ),
+                                        Text(
+                                          "120",
+                                          style: range2 == true
+                                              ? kHeightInRange
+                                              : kHeightNotInRange,
+                                        ),
+                                        Text(
+                                          "100",
+                                          style: range1 == true
+                                              ? kHeightInRange
+                                              : kHeightNotInRange,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -315,23 +418,22 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   ),
                   Container(
-                    width: width/2.5,
+                    width: width / 2.5,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-
                         // weight info
                         Material(
                           //weight input
-                          borderRadius: BorderRadius.circular(10.0) ,
+                          borderRadius: BorderRadius.circular(10.0),
                           elevation: 5,
                           child: Container(
                             decoration: BoxDecoration(
                               color: kBackground,
                               borderRadius: BorderRadius.circular(10.0),
                             ),
-                            height: height/3.3,
-                            child:  Column(
+                            height: height / 3.3,
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 Text(
@@ -347,8 +449,9 @@ class _InputScreenState extends State<InputScreen> {
                                   children: <Widget>[
                                     RawMaterialButton(
                                       elevation: 20.0,
-                                      child: Icon(FontAwesomeIcons.minus,color: kText),
-                                      onPressed: (){
+                                      child: Icon(FontAwesomeIcons.minus,
+                                          color: kText),
+                                      onPressed: () {
                                         setState(() {
                                           weight--;
                                         });
@@ -360,11 +463,16 @@ class _InputScreenState extends State<InputScreen> {
                                       shape: CircleBorder(),
                                       fillColor: kBackground,
                                     ),
-                                    SizedBox(width: 10.0,),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
                                     RawMaterialButton(
                                       elevation: 20.0,
-                                      child: Icon(FontAwesomeIcons.plus,color: kText,),
-                                      onPressed: (){
+                                      child: Icon(
+                                        FontAwesomeIcons.plus,
+                                        color: kText,
+                                      ),
+                                      onPressed: () {
                                         setState(() {
                                           weight++;
                                         });
@@ -386,14 +494,14 @@ class _InputScreenState extends State<InputScreen> {
                         //age info
                         Material(
                           //age input
-                          borderRadius: BorderRadius.circular(10.0) ,
+                          borderRadius: BorderRadius.circular(10.0),
                           elevation: 5,
                           child: Container(
                             decoration: BoxDecoration(
                               color: kBackground,
                               borderRadius: BorderRadius.circular(10.0),
                             ),
-                            height: height/3.3,
+                            height: height / 3.3,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
@@ -410,8 +518,9 @@ class _InputScreenState extends State<InputScreen> {
                                   children: <Widget>[
                                     RawMaterialButton(
                                       elevation: 20.0,
-                                      child: Icon(FontAwesomeIcons.minus,color: kText),
-                                      onPressed: (){
+                                      child: Icon(FontAwesomeIcons.minus,
+                                          color: kText),
+                                      onPressed: () {
                                         setState(() {
                                           age--;
                                         });
@@ -423,11 +532,16 @@ class _InputScreenState extends State<InputScreen> {
                                       shape: CircleBorder(),
                                       fillColor: kBackground,
                                     ),
-                                    SizedBox(width: 10.0,),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
                                     RawMaterialButton(
                                       elevation: 20.0,
-                                      child: Icon(FontAwesomeIcons.plus,color: kText,),
-                                      onPressed: (){
+                                      child: Icon(
+                                        FontAwesomeIcons.plus,
+                                        color: kText,
+                                      ),
+                                      onPressed: () {
                                         setState(() {
                                           age++;
                                         });
@@ -455,31 +569,35 @@ class _InputScreenState extends State<InputScreen> {
               child: Center(
                 child: GestureDetector(
                   child: Material(
-                    borderRadius: BorderRadius.circular(10.0) ,
+                    borderRadius: BorderRadius.circular(10.0),
                     elevation: 10,
                     child: Container(
-                        width: width/1.5,
-                        height: height/15,
+                        width: width / 1.5,
+                        height: height / 15,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Calculate",style: kButtonText,),
+                            Text(
+                              "Calculate",
+                              style: kButtonText.copyWith(color: Colors.white),
+                            ),
                           ],
                         ),
                         decoration: BoxDecoration(
                           color: kActive,
                           borderRadius: BorderRadius.circular(10.0),
-                        )
-                    ),
+                        )),
                   ),
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ResultPage(UserWeight: weight,UserHeight: heightInput,),
+                        builder: (context) => ResultPage(
+                          UserWeight: weight,
+                          UserHeight: heightInput,
+                        ),
                       ),
                     );
-
                   },
                 ),
               ),
@@ -491,4 +609,3 @@ class _InputScreenState extends State<InputScreen> {
     );
   }
 }
-

@@ -1,16 +1,18 @@
+import 'dart:math';
+
 import 'package:bmi_calculator/screens/DetailsScreen.dart';
 import 'package:bmi_calculator/screens/InputScreen.dart';
 import 'package:bmi_calculator/utils/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
-
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ResultPage extends StatelessWidget {
   ResultPage({required this.UserHeight, required this.UserWeight});
+
   final int UserHeight;
   final int UserWeight;
+
   @override
   Widget build(BuildContext context) {
     int weight = UserWeight;
@@ -26,17 +28,15 @@ class ResultPage extends StatelessWidget {
     String below = "Low ";
     String above = "Higher ";
     String extremeAbove = "Extremely Higher ";
-    String cond = "" ;
+    String cond = "";
 
-    if (bmi < 18.5){
+    if (bmi < 18.5) {
       cond = below;
-    }
-    else if (bmi >= 18.5 && bmi < 25){
+    } else if (bmi >= 18.5 && bmi < 25) {
       cond = normal;
-    }else if (bmi >= 25 && bmi < 30){
+    } else if (bmi >= 25 && bmi < 30) {
       cond = above;
-    }
-    else if (bmi >= 30){
+    } else if (bmi >= 30) {
       cond = extremeAbove;
     }
 
@@ -87,12 +87,14 @@ class ResultPage extends StatelessWidget {
                         Icons.refresh,
                         color: kText,
                       ),
-                      onPressed: () {Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => InputScreen(),
-                        ),
-                      );},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => InputScreen(),
+                          ),
+                        );
+                      },
                       constraints: BoxConstraints.tightFor(
                         width: 45.0,
                         height: 45.0,
@@ -110,10 +112,11 @@ class ResultPage extends StatelessWidget {
                     height: 230,
                     color: kBackground,
                     child: Material(
-
                       elevation: 20,
+                      color: kBackground,
                       borderRadius: BorderRadius.circular(400),
                       child: CircularPercentIndicator(
+                        backgroundColor: kBackground2,
                         radius: 200.0,
                         lineWidth: 20.0,
                         animation: true,
@@ -121,20 +124,28 @@ class ResultPage extends StatelessWidget {
                         animationDuration: 1000,
                         center: Text(
                           "$bmiResult",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 40.0),
                         ),
                         circularStrokeCap: CircularStrokeCap.round,
                         progressColor: kActive,
                       ),
                     ),
                   ),
-                  SizedBox(height: 70,),
+                  SizedBox(
+                    height: 70,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("You have ",style: TextStyle(color: kText,fontSize: 23),),
-                      Text("$cond",style: TextStyle(color: kActive,fontSize: 23)),
-                      Text("Body weight!",style: TextStyle(color: kText,fontSize: 23)),
+                      Text(
+                        "You have ",
+                        style: TextStyle(color: kText, fontSize: 23),
+                      ),
+                      Text("$cond",
+                          style: TextStyle(color: kActive, fontSize: 23)),
+                      Text("Body weight!",
+                          style: TextStyle(color: kText, fontSize: 23)),
                     ],
                   ),
                 ],
@@ -154,7 +165,8 @@ class ResultPage extends StatelessWidget {
                             children: [
                               Text(
                                 "Details",
-                                style: kButtonText,
+                                style:
+                                    kButtonText.copyWith(color: Colors.white),
                               ),
                             ],
                           ),
@@ -167,9 +179,10 @@ class ResultPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailsView(bmi: bmiResult, conditon: cond),),
-                        );
-
+                          builder: (context) =>
+                              DetailsView(bmi: bmiResult, conditon: cond),
+                        ),
+                      );
                     },
                   ),
                 ),

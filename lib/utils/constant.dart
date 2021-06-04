@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-const kBackground = Color(0xFFd5d6d7);
+const kBackground = Color(0xFFeeeeee);
 const kBackground2 = Color(0xFFb9c3c9);
-const kActive = Color(0xFF2CA1BC);
-const kGrey = Color(0xFF727789);
-const kText = Color(0xFF4D5468);
+const kActive = Color(0xFF00adb5);
+const kGrey = Color(0xFF393e46);
+const kText = Color(0xFF222831);
 
 const kHeadingStyle = TextStyle(
   fontSize: 35.0,

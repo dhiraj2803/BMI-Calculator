@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'constant.dart';
+
 class Scale extends StatelessWidget {
   Scale({required this.width});
   double width;
@@ -20,4 +21,3 @@ class Scale extends StatelessWidget {
     );
   }
 }
-
