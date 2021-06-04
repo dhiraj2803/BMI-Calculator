@@ -20,7 +20,7 @@ class ResultPage extends StatelessWidget {
 
     bmi = weight / pow(height / 100, 2).toDouble();
     bmiPercent = (bmi / 60);
-    String bmiResult = bmi.toStringAsFixed(2);
+    String bmiResult = bmi.toStringAsFixed(1);
 
     String normal = "Normal ";
     String below = "Low ";
@@ -46,7 +46,7 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackground,
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(25, 25, 25, 35),
+        padding: const EdgeInsets.fromLTRB(25, 30, 25, 35),
         child: Container(
           width: Swidth,
           height: Sheight,

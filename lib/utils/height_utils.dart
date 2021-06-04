@@ -7,7 +7,7 @@ class Scale extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 2,
+      height: 1,
       width: width,
       decoration: BoxDecoration(
         color: kGrey,

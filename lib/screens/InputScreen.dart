@@ -40,7 +40,7 @@ class _InputScreenState extends State<InputScreen> {
     return Scaffold(
       backgroundColor: kBackground,
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+        padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
