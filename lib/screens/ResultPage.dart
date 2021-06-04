@@ -1,3 +1,5 @@
+import 'package:bmi_calculator/screens/DetailsScreen.dart';
+import 'package:bmi_calculator/screens/InputScreen.dart';
 import 'package:bmi_calculator/utils/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,24 @@ class ResultPage extends StatelessWidget {
     bmi = weight / pow(height / 100, 2).toDouble();
     bmiPercent = (bmi / 60);
     String bmiResult = bmi.toStringAsFixed(2);
+
+    String normal = "Normal ";
+    String below = "Low ";
+    String above = "Higher ";
+    String extremeAbove = "Extremely Higher ";
+    String cond = "" ;
+
+    if (bmi < 18.5){
+      cond = below;
+    }
+    else if (bmi >= 18.5 && bmi < 25){
+      cond = normal;
+    }else if (bmi >= 25 && bmi < 30){
+      cond = above;
+    }
+    else if (bmi >= 30){
+      cond = extremeAbove;
+    }
 
     var screenSize = MediaQuery.of(context).size;
     var Swidth = screenSize.width;
@@ -64,10 +84,15 @@ class ResultPage extends StatelessWidget {
                     RawMaterialButton(
                       elevation: 20.0,
                       child: Icon(
-                        Icons.person_rounded,
+                        Icons.refresh,
                         color: kText,
                       ),
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InputScreen(),
+                        ),
+                      );},
                       constraints: BoxConstraints.tightFor(
                         width: 45.0,
                         height: 45.0,
@@ -108,13 +133,12 @@ class ResultPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("You have ",style: TextStyle(color: kText,fontSize: 23),),
-                      bmiCondition(bmi: bmi,),
+                      Text("$cond",style: TextStyle(color: kActive,fontSize: 23)),
                       Text("Body weight!",style: TextStyle(color: kText,fontSize: 23)),
                     ],
                   ),
                 ],
               ),
-              //Text("BMI = $bmiResult BMI %  =  $bmiPercent %",style: kHeadingStyle,),
               Container(
                 child: Center(
                   child: GestureDetector(
@@ -139,7 +163,14 @@ class ResultPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                           )),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailsView(bmi: bmiResult, conditon: cond),),
+                        );
+
+                    },
                   ),
                 ),
               )
@@ -150,31 +181,3 @@ class ResultPage extends StatelessWidget {
     );
   }
 }
-
-class bmiCondition extends StatelessWidget {
-  bmiCondition({required this.bmi});
-  final double bmi;
-  String normal = "Normal ";
-  String below = "Low ";
-  String above = "Higher ";
-  String extremeAbove = "Extremely Higher ";
-  String cond = "" ;
-
-
-  @override
-  Widget build(BuildContext context) {
-    if (bmi < 18.5){
-      cond = below;
-    }
-    else if (bmi >= 18.5 && bmi < 25){
-      cond = normal;
-    }else if (bmi >= 25 && bmi < 30){
-      cond = above;
-    }
-    else if (bmi >= 30){
-      cond = extremeAbove;
-    }
-    return Text(cond,style: TextStyle(color: kActive,fontSize: 23));
-  }
-}
-

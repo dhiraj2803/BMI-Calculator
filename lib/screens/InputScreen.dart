@@ -39,78 +39,80 @@ class _InputScreenState extends State<InputScreen> {
     var height = screenSize.height;
     return Scaffold(
       backgroundColor: kBackground,
-      appBar: AppBar(
-        backgroundColor: kBackground,
-        elevation: 0.0,
-        title: Center(child: Text('BMI Calculator',style: kHeadingStyle,)),
-      ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            Container(child:
+            Column(
               children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      maleTap = true;
-                      femaleTap = false;
-                    });
-                  },
-                  child: Material(
-                    borderRadius: BorderRadius.circular(10.0) ,
-                    elevation: 20,
-                    child: Container(
-                      width: width/2.5,
-                      height: height/15,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Male",style: maleTap == true ? kButtonTextActive : kButtonText),
-                        ],
+                Text('BMI Calculator',style: kHeadingStyle,),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          maleTap = true;
+                          femaleTap = false;
+                        });
+                      },
+                      child: Material(
+                        borderRadius: BorderRadius.circular(10.0) ,
+                        elevation: 20,
+                        child: Container(
+                          width: width/2.5,
+                          height: height/15,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Male",style: maleTap == true ? kButtonTextActive : kButtonText),
+                            ],
+                          ),
+                            decoration: BoxDecoration(
+                              color: maleTap == true
+                                  ? kActive
+                                  : kBackground,
+                              borderRadius: BorderRadius.circular(10.0),
+                            )
+                        ),
                       ),
-                        decoration: BoxDecoration(
-                          color: maleTap == true
-                              ? kActive
-                              : kBackground,
-                          borderRadius: BorderRadius.circular(10.0),
-                        )
                     ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      maleTap = false;
-                      femaleTap = true;
-                    });
-                  },
-                  child: Material(
-                    elevation: 20.0,
-                    borderRadius:BorderRadius.circular(10.0) ,
-                    child: Container(
-                        width: width/2.5,
-                        height: height/15,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Female",style: femaleTap == true ? kButtonTextActive : kButtonText),
-                        ],
-                      ),
-                        decoration: BoxDecoration(
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          maleTap = false;
+                          femaleTap = true;
+                        });
+                      },
+                      child: Material(
+                        elevation: 20.0,
+                        borderRadius:BorderRadius.circular(10.0) ,
+                        child: Container(
+                            width: width/2.5,
+                            height: height/15,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Female",style: femaleTap == true ? kButtonTextActive : kButtonText),
+                            ],
+                          ),
+                            decoration: BoxDecoration(
 
-                          color: femaleTap == true
-                              ? kActive
-                              : kBackground,
-                          borderRadius: BorderRadius.circular(10.0),
-                        )
-                    ),
-                  ),
-                )
+                              color: femaleTap == true
+                                  ? kActive
+                                  : kBackground,
+                              borderRadius: BorderRadius.circular(10.0),
+                            )
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ],
             )),
             Container(

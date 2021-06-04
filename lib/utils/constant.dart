@@ -7,7 +7,7 @@ const kGrey = Color(0xFF727789);
 const kText = Color(0xFF4D5468);
 
 const kHeadingStyle = TextStyle(
-  fontSize: 30.0,
+  fontSize: 35.0,
   color: kText,
 );
 
