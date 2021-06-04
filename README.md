@@ -1,4 +1,4 @@
 # bmi_calculator
 
-<img src="https://user-images.githubusercontent.com/47321390/120862245-4357c280-c5a6-11eb-97a2-0765c74be29c.png" width="330" height="600"><img src="https://user-images.githubusercontent.com/47321390/120862252-45218600-c5a6-11eb-9cd3-80b5be154450.png" width="330" height="600"><img src="https://user-images.githubusercontent.com/47321390/120862257-46eb4980-c5a6-11eb-9bc1-c77bd07b1ca2.png" width="330" height="600">
+<img src="https://user-images.githubusercontent.com/47321390/120863856-f1646c00-c5a8-11eb-9679-9f0e5b52852f.png" width="315" height="600"><img src="https://user-images.githubusercontent.com/47321390/120863857-f32e2f80-c5a8-11eb-9e49-2d9d4bab9af7.png" width="315" height="600"><img src="https://user-images.githubusercontent.com/47321390/120863871-f75a4d00-c5a8-11eb-82f4-e8e29f089167.png" width="315" height="600">
 
