@@ -43,151 +43,153 @@ class ResultPage extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     var Swidth = screenSize.width;
     var Sheight = screenSize.height;
-    return Scaffold(
-      backgroundColor: kBackground,
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(25, 30, 25, 35),
-        child: Container(
-          width: Swidth,
-          height: Sheight,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              //top container(back button,heading)
-              Container(
-                height: Sheight / 12,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: kBackground,
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(25, 35, 25, 35),
+          child: Container(
+            width: Swidth,
+            height: Sheight,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                //top container(back button,heading)
+                Container(
+                  height: Sheight / 12,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      RawMaterialButton(
+                        elevation: 20.0,
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: kText,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        constraints: BoxConstraints.tightFor(
+                          width: 45.0,
+                          height: 45.0,
+                        ),
+                        shape: CircleBorder(),
+                        fillColor: kBackground,
+                      ),
+                      Text(
+                        "BMI Result",
+                        style: kHeadingStyle,
+                      ),
+                      RawMaterialButton(
+                        elevation: 20.0,
+                        child: Icon(
+                          Icons.refresh,
+                          color: kText,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InputScreen(),
+                            ),
+                          );
+                        },
+                        constraints: BoxConstraints.tightFor(
+                          width: 45.0,
+                          height: 45.0,
+                        ),
+                        shape: CircleBorder(),
+                        fillColor: kBackground,
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
                   children: [
-                    RawMaterialButton(
-                      elevation: 20.0,
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: kText,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      constraints: BoxConstraints.tightFor(
-                        width: 45.0,
-                        height: 45.0,
-                      ),
-                      shape: CircleBorder(),
-                      fillColor: kBackground,
-                    ),
-                    Text(
-                      "BMI Result",
-                      style: kHeadingStyle,
-                    ),
-                    RawMaterialButton(
-                      elevation: 20.0,
-                      child: Icon(
-                        Icons.refresh,
-                        color: kText,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => InputScreen(),
+                    Container(
+                      width: 230,
+                      height: 230,
+                      color: kBackground,
+                      child: Material(
+                        elevation: 20,
+                        color: kBackground,
+                        borderRadius: BorderRadius.circular(400),
+                        child: CircularPercentIndicator(
+                          backgroundColor: kBackground2,
+                          radius: 200.0,
+                          lineWidth: 20.0,
+                          animation: true,
+                          percent: bmiPercent <= 1 ? bmiPercent : 1.0,
+                          animationDuration: 1000,
+                          center: Text(
+                            "$bmiResult",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 40.0),
                           ),
-                        );
-                      },
-                      constraints: BoxConstraints.tightFor(
-                        width: 45.0,
-                        height: 45.0,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          progressColor: kActive,
+                        ),
                       ),
-                      shape: CircleBorder(),
-                      fillColor: kBackground,
+                    ),
+                    SizedBox(
+                      height: 70,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "You have ",
+                          style: TextStyle(color: kText, fontSize: 23),
+                        ),
+                        Text("$cond",
+                            style: TextStyle(color: kActive, fontSize: 23)),
+                        Text("Body weight!",
+                            style: TextStyle(color: kText, fontSize: 23)),
+                      ],
                     ),
                   ],
                 ),
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: 230,
-                    height: 230,
-                    color: kBackground,
-                    child: Material(
-                      elevation: 20,
-                      color: kBackground,
-                      borderRadius: BorderRadius.circular(400),
-                      child: CircularPercentIndicator(
-                        backgroundColor: kBackground2,
-                        radius: 200.0,
-                        lineWidth: 20.0,
-                        animation: true,
-                        percent: bmiPercent <= 1 ? bmiPercent : 1.0,
-                        animationDuration: 1000,
-                        center: Text(
-                          "$bmiResult",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 40.0),
-                        ),
-                        circularStrokeCap: CircularStrokeCap.round,
-                        progressColor: kActive,
+                Container(
+                  child: Center(
+                    child: GestureDetector(
+                      child: Material(
+                        borderRadius: BorderRadius.circular(10.0),
+                        elevation: 10,
+                        child: Container(
+                            width: Swidth / 2.5,
+                            height: Sheight / 15,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Details",
+                                  style:
+                                      kButtonText.copyWith(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            decoration: BoxDecoration(
+                              color: kActive,
+                              borderRadius: BorderRadius.circular(10.0),
+                            )),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 70,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "You have ",
-                        style: TextStyle(color: kText, fontSize: 23),
-                      ),
-                      Text("$cond",
-                          style: TextStyle(color: kActive, fontSize: 23)),
-                      Text("Body weight!",
-                          style: TextStyle(color: kText, fontSize: 23)),
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                child: Center(
-                  child: GestureDetector(
-                    child: Material(
-                      borderRadius: BorderRadius.circular(10.0),
-                      elevation: 10,
-                      child: Container(
-                          width: Swidth / 2.5,
-                          height: Sheight / 15,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Details",
-                                style:
-                                    kButtonText.copyWith(color: Colors.white),
-                              ),
-                            ],
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                DetailsView(bmi: bmiResult, conditon: cond),
                           ),
-                          decoration: BoxDecoration(
-                            color: kActive,
-                            borderRadius: BorderRadius.circular(10.0),
-                          )),
+                        );
+                      },
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              DetailsView(bmi: bmiResult, conditon: cond),
-                        ),
-                      );
-                    },
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
